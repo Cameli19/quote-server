@@ -1,0 +1,31 @@
+.title {
+    color: Blue;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+    color:cadetblue;
+}
+
+.quote {
+    font-style: italic;
+    font-size: 1.5rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.author {
+    text-align: right;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:burlywood;
+    padding: 2rem;
+    max-width: 700px;
+    margin:auto;
+}
