@@ -73,20 +73,115 @@ fn extract_db_dir(db_uri: &str) -> Result<&str, QuoteError> {
         Err(QuoteError::InvalidDbUri(db_uri.to_string()))
     }
 }
-async fn get_quote() -> response::Html<String> {
-    let quote = IndexTemplate::quote(&THE_QUOTE);
-    response::Html(quote.to_string())
-}
-
 
 async fn serve() -> Result<(), Box<dyn std::error::Error>> {
+    let args = Args::parse();
+
+    let db_uri = get_db_uri(args.db_uri.as_deref());
+    if !sqlite::Sqlite::database_exists(&db_uri).await? {
+        let db_dir = extract_db_dir(&db_uri)?;
+        std::fs::create_dir_all(db_dir)?;
+        sqlite::Sqlite::create_database(&db_uri).await?
+    }
+
+    let db = SqlitePool::connect(&db_uri).await?;
+    sqlx::migrate!().run(&db).await?;
+    if let Some(path) = args.init_from {
+        let quotes = read_quotes(path)?;
+        'next_quote: for qq in quotes {
+            let mut qtx = db.begin().await?;
+            let (q, ts) = qq.to_quote();
+            let quote_insert = sqlx::query!(
+                "INSERT INTO quotes (id, text, author, source) VALUES ($1, $2, $3, $4);",
+                q.id,
+                q.text,
+                q.author,
+                q.source,
+            )
+            .execute(&mut *qtx)
+            .await;
+            if let Err(e) = quote_insert {
+                eprintln!("error: quote insert: {}: {}", q.id, e);
+                qtx.rollback().await?;
+                continue;
+            };
+            for t in ts {
+                let tag_insert =
+                    sqlx::query!("INSERT INTO tags (quote_id, tag) VALUES ($1, $2);", q.id, t,)
+                        .execute(&mut *qtx)
+                        .await;
+                if let Err(e) = tag_insert {
+                    eprintln!("error: tag insert: {} {}: {}", q.id, t, e);
+                    qtx.rollback().await?;
+                    continue 'next_quote;
+                };
+            }
+            qtx.commit().await?;
+        }
+        return Ok(());
+    }
+    let current_quote = Quote {
+        id: "zen001".to_string(),
+        text: "The journey of a thousand miles begins with one step.".to_string(),
+        author: "Lao Tzu".to_string(),
+        source: "Tao Te Ching".to_string(),
+    };
+    let app_state = AppState { db, current_quote };
+    let state = Arc::new(RwLock::new(app_state));
+
+    tracing_subscriber::registry()
+        .with(
+            tracing_subscriber::EnvFilter::try_from_default_env()
+                .unwrap_or_else(|_| "quote-server=debug,info".into()),
+        )
+        .with(tracing_subscriber::fmt::layer())
+        .init();
+    
+    let trace_layer = trace::TraceLayer::new_for_http()
+        .make_span_with(trace::DefaultMakeSpan::new().level(tracing::Level::INFO))
+        .on_response(trace::DefaultOnResponse::new().level(tracing::Level::INFO));
+
+    let cors = tower_http::cors::CorsLayer::new()
+        .allow_methods([http::Method::GET])
+        .allow_origin(tower_http::cors::Any);
+
+    async fn handler_404() -> axum::response::Response {
+        (http::StatusCode::NOT_FOUND, "404 Not Found").into_response()
+    }
+
+    let mime_favicon = "image/vnd.microsoft.icon".parse().unwrap();
+
+    let (api_router, api) = OpenApiRouter::with_openapi(api::ApiDoc::openapi())
+        .nest("/api/v1", api::router())
+        .split_for_parts();
+
+    let swagger_ui = SwaggerUi::new("/swagger-ui")
+        .url("/api-docs/openapi.json", api.clone());
+    let redoc_ui = Redoc::with_url("/redoc", api);
+    let rapidoc_ui = RapiDoc::new("/api-docs/openapi.json").path("/rapidoc");
+
+
+
     let app = axum::Router::new()
-        .route("/", routing::get(get_quote))
+        .route("/", routing::get(web::get_quote))
         .route_service(
             "/quote.css",
-            services::ServeFile::new_with_mime("assets/static/quote.css", &mime::TEXT_CSS)
-        );
-    let listener = net::TcpListener::bind("127.0.0.1:3000").await?;
+            services::ServeFile::new_with_mime("assets/static/quote.css", &mime::TEXT_CSS_UTF_8),
+        )
+        .route_service(
+            "/favicon.ico",
+            services::ServeFile::new_with_mime("assets/static/favicon.ico", &mime_favicon),
+        )
+        .merge(swagger_ui)
+        .merge(redoc_ui)
+        .merge(rapidoc_ui)
+        .merge(api_router)
+        .fallback(handler_404)
+        .layer(cors)
+        .layer(trace_layer)
+        .with_state(state);
+
+    let listener = net::TcpListener::bind(&format!("127.0.0.1:{}", args.port)).await?;
     axum::serve(listener, app).await?;
     Ok(())
 }
