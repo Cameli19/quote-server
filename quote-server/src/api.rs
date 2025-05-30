@@ -80,11 +80,11 @@ pub async fn get_tagged_quote(
         (status = 404, description = "No quote"),
     )
 )]
-pub async fn get_random_joke(
+pub async fn get_random_quote(
     State(app_state): State<Arc<RwLock<AppState>>>,
 ) -> Result<response::Response, http::StatusCode> {
     let app_reader = app_state.read().await;
-    let db = &app_reader.db;
+    let db = &/app_reader.db;
     let quote_result = quote::get_random(db).await;
     match quote_result {
         Ok(quote_id) => get_quote_by_id(db, &quote_id).await,

@@ -189,7 +189,7 @@ async fn serve() -> Result<(), Box<dyn std::error::Error>> {
 #[tokio::main]
 async fn main() {
     if let Err(err) = serve().await {
-        eprintln!("quote serve: error: {}", err);
+        eprintln!("quote-server: error: {}", err);
         std::process::exit(1);
     }
 }

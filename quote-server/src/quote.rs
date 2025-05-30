@@ -62,7 +62,7 @@ impl axum::response::IntoResponse for &JsonQuote {
 }
 
 pub async fn get(db: &SqlitePool, quote_id: &str) -> Result<(Quote, Vec<String>), sqlx::Error> {
-    let quote = sqlx::query_as!(Quote, "SELECT * FROM jokes WHERE id = $1;", quote_id)
+    let quote = sqlx::query_as!(Quote, "SELECT * FROM quotes WHERE id = $1;", quote_id)
         .fetch_one(db)
         .await?;
 
@@ -92,7 +92,7 @@ pub async fn get_tagged<'a, I>(db: &SqlitePool, tags: I) -> Result<Option<String
         .await?;
     let nquote_ids = quote_ids.len();
     let result = if nquote_ids == 1 {
-        Some(joke_ids[0].get(0))
+        Some(quote_ids[0].get(0))
     } else {
         None
     };
