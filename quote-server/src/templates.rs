@@ -4,7 +4,7 @@ use askama::Template;
 
 #[derive(Template)]
 #[template(path = "index.html")]
-pub struct IndexTemplate<'a> {
+pub struct IndexTemplate {
     quote: Quote,
     stylesheet: &'static str,
     tags: String,

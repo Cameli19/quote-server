@@ -9,9 +9,9 @@ use crate::QuoteError;
 use serde::Deserialize;
 
 #[derive(Debug, Serialize, Deserialize, ToSchema)]
-pub struct Quote {
+pub struct JsonQuote {
     id: String,
-    text: String, 
+    content: String, 
     author: String,
     tags: HashSet<String>,
     source: String,
@@ -20,7 +20,7 @@ pub struct Quote {
 #[derive(Clone)]
 pub struct Quote {
     pub id: String,
-    pub text: String,
+    pub content: String,
     pub author: String,
     pub source: String,
 }
@@ -36,7 +36,7 @@ impl JsonQuote {
         let tags = tags.into_iter().collect();
         Self {
             id: quote.id,
-            text: quote.text,
+            content: quote.content,
             author: quote.author,
             tags,
             source: quote.source,
@@ -46,7 +46,7 @@ impl JsonQuote {
     pub fn to_quote(&self) -> (Quote, impl Iterator<Item = &str>) {
         let quote = Quote {
             id: self.id.clone(),
-            text: self.text.clone(),
+            content: self.content.clone(),
             author: self.author.clone(),
             source: self.source.clone(),
         };
@@ -87,7 +87,7 @@ pub async fn get_tagged<'a, I>(db: &SqlitePool, tags: I) -> Result<Option<String
             .execute(&mut *qtx)
             .await?;
     }
-    let quote_ids = sqlx::query("SELECT DISTINCT quote_id FROM tags JOIN qtags ON quote_tags.tag = qtags.tag ORDER BY RANDOM() LIMIT 1;")
+    let quote_ids = sqlx::query("SELECT DISTINCT quote_id FROM tags JOIN qtags ON tags.tag = qtags.tag ORDER BY RANDOM() LIMIT 1;")
         .fetch_all(&mut *qtx)
         .await?;
     let nquote_ids = quote_ids.len();

@@ -1,0 +1,31 @@
+[
+    {
+      "id": "edison1",
+      "content": "Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
+      "author": "Thomas A. Edison",
+      "tags": ["motivation", "life", "inspiration"],
+      "source": "https://www.brainyquote.com/quotes/thomas_a_edison_149049?src=t_motivational"
+    },
+    {
+      "id": "marie1",
+      "content": "Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less.",
+      "author": "Marie Curie",
+      "tags": ["motivation", "individuality", "positive"],
+      "source": "https://www.brainyquote.com/topics/positive-quotes"
+    },
+    {
+      "id": "johnson1",
+      "content": "Yesterday is not ours to recover, but tomorrow is ours to win or lose.",
+      "author": "Lyndon B. Johnson",
+      "tags": ["success", "perseverance", "postive"],
+      "source": "https://www.brainyquote.com/topics/positive-quotes"
+    },
+    {
+      "id": "keller1",
+      "content": "Alone we can do so little; together we can do so much.",
+      "author": "Helen Keller",
+      "tags": ["teamwork", "attitude", "community"],
+      "source": "https://www.brainyquote.com/topics/attitude-quotes"
+    }
+]
+  

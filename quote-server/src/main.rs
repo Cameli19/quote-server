@@ -92,9 +92,9 @@ async fn serve() -> Result<(), Box<dyn std::error::Error>> {
             let mut qtx = db.begin().await?;
             let (q, ts) = qq.to_quote();
             let quote_insert = sqlx::query!(
-                "INSERT INTO quotes (id, text, author, source) VALUES ($1, $2, $3, $4);",
+                "INSERT INTO quotes (id, content, author, source) VALUES ($1, $2, $3, $4);",
                 q.id,
-                q.text,
+                q.content,
                 q.author,
                 q.source,
             )
@@ -122,7 +122,7 @@ async fn serve() -> Result<(), Box<dyn std::error::Error>> {
     }
     let current_quote = Quote {
         id: "zen001".to_string(),
-        text: "The journey of a thousand miles begins with one step.".to_string(),
+        content: "The journey of a thousand miles begins with one step.".to_string(),
         author: "Lao Tzu".to_string(),
         source: "Tao Te Ching".to_string(),
     };

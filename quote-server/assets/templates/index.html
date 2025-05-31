@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Quote Server</title>
@@ -6,8 +7,17 @@
     <body>
         <h1>Quote of the Day</h1>
         <div class="Quote">
-            <span class="text">{{ quote.text }}</span><br/>
+            <span class="content">{{ quote.content }}</span><br/>
             <span class="author">-{{ quote.author}}</span>
         </div>
+        <div class="info">
+            <span class="source">Source: {{quote.source}}</span>
+            <span class="tags">Tags: {{tags}}</span>
+        </div>
+        <form>
+          <label>Tags (comma separated):</label>
+          <input type="text" name="tags"/>
+          <button type="submit">New Quote</button>
+        </form>
     </body>
 </html>

@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS quotes (
+  content VARCHAR(200) NOT NULL,
+  author VARCHAR(200) NOT NULL
+);
