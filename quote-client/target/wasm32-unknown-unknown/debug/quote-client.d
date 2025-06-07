@@ -1,1 +1,0 @@
-/Users/camelliatran/Documents/CS/CS410P-\ Rust/project/quote-server/quote-client/target/wasm32-unknown-unknown/debug/quote-client.wasm: /Users/camelliatran/Documents/CS/CS410P-\ Rust/project/quote-server/quote-client/src/main.rs /Users/camelliatran/Documents/CS/CS410P-\ Rust/project/quote-server/quote-client/src/quote.rs

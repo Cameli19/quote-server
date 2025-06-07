@@ -1,9 +1,0 @@
-/Users/camelliatran/Documents/CS/CS410P- Rust/project/quote-server/quote-client/target/debug/deps/libconvert_case-e2e9723638d0e821.rmeta: /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.6.0/src/lib.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.6.0/src/case.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.6.0/src/converter.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.6.0/src/pattern.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.6.0/src/segmentation.rs
-
-/Users/camelliatran/Documents/CS/CS410P- Rust/project/quote-server/quote-client/target/debug/deps/convert_case-e2e9723638d0e821.d: /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.6.0/src/lib.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.6.0/src/case.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.6.0/src/converter.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.6.0/src/pattern.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.6.0/src/segmentation.rs
-
-/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.6.0/src/lib.rs:
-/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.6.0/src/case.rs:
-/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.6.0/src/converter.rs:
-/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.6.0/src/pattern.rs:
-/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/convert_case-0.6.0/src/segmentation.rs:

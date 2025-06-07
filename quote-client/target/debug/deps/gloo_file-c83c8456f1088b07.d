@@ -1,9 +1,0 @@
-/Users/camelliatran/Documents/CS/CS410P- Rust/project/quote-server/quote-client/target/debug/deps/libgloo_file-c83c8456f1088b07.rmeta: /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-file-0.2.3/src/lib.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-file-0.2.3/src/blob.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-file-0.2.3/src/file_list.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-file-0.2.3/src/file_reader.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-file-0.2.3/src/object_url.rs
-
-/Users/camelliatran/Documents/CS/CS410P- Rust/project/quote-server/quote-client/target/debug/deps/gloo_file-c83c8456f1088b07.d: /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-file-0.2.3/src/lib.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-file-0.2.3/src/blob.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-file-0.2.3/src/file_list.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-file-0.2.3/src/file_reader.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-file-0.2.3/src/object_url.rs
-
-/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-file-0.2.3/src/lib.rs:
-/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-file-0.2.3/src/blob.rs:
-/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-file-0.2.3/src/file_list.rs:
-/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-file-0.2.3/src/file_reader.rs:
-/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-file-0.2.3/src/object_url.rs:

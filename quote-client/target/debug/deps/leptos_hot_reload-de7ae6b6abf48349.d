@@ -1,9 +1,0 @@
-/Users/camelliatran/Documents/CS/CS410P- Rust/project/quote-server/quote-client/target/debug/deps/libleptos_hot_reload-de7ae6b6abf48349.rmeta: /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/leptos_hot_reload-0.8.2/src/lib.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/leptos_hot_reload-0.8.2/src/diff.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/leptos_hot_reload-0.8.2/src/node.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/leptos_hot_reload-0.8.2/src/parsing.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/leptos_hot_reload-0.8.2/src/patch.js
-
-/Users/camelliatran/Documents/CS/CS410P- Rust/project/quote-server/quote-client/target/debug/deps/leptos_hot_reload-de7ae6b6abf48349.d: /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/leptos_hot_reload-0.8.2/src/lib.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/leptos_hot_reload-0.8.2/src/diff.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/leptos_hot_reload-0.8.2/src/node.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/leptos_hot_reload-0.8.2/src/parsing.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/leptos_hot_reload-0.8.2/src/patch.js
-
-/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/leptos_hot_reload-0.8.2/src/lib.rs:
-/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/leptos_hot_reload-0.8.2/src/diff.rs:
-/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/leptos_hot_reload-0.8.2/src/node.rs:
-/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/leptos_hot_reload-0.8.2/src/parsing.rs:
-/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/leptos_hot_reload-0.8.2/src/patch.js:
