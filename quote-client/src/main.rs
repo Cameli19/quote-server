@@ -47,7 +47,7 @@ fn format_tags(tags: &HashSet<String>) -> String {
 
 fn fetch_quote() -> impl IntoView {
     let (endpoint, set_endpoint) = signal::<String>("random-quote".to_string());
-    let quote = LocalResource::new(move || joke::fetch(endpoint.get()));
+    let quote = LocalResource::new(move || quote::fetch(endpoint.get()));
 
     let error_fallback = move |errors: ArcRwSignal<Errors>| {
         let error_list = move || {
@@ -71,23 +71,19 @@ fn fetch_quote() -> impl IntoView {
         <div><Transition fallback=|| view! { <div>"Loading..."</div> }>
             <ErrorBoundary fallback=error_fallback>
                 {move || Suspend::new( async move {
-                    quote.map(|j| {
-                        let j = j.as_ref().unwrap();
+                    quote.map(|q| {
+                        let q = q.as_ref().unwrap();
                         view! {
                             <div class="Quote">
-                            <span class="content">{{ quote.content }}</span><br/>
-                            <span class="author">-{{ quote.author}}</span>
-                        </div>
-                        <div class="info">
-                            <span class="source">Source: {{quote.source}}</span>
-                            <span class="tags">Tags: {{tags}}</span>
+                            <span class="content">{q.content.clone()}</span><br/>
+                            <span class="author">- {q.author.clone()}</span>
                         </div>
                         <span class="annotation">
                                 {format!(
                                     "[id: {}; tags: {}; source: {}]",
-                                    j.id,
-                                    format_tags(&j.tags),
-                                    j.source,
+                                    q.id,
+                                    format_tags(&q.tags),
+                                    q.source,
                                 )}
                             </span>
                         }
@@ -121,5 +117,5 @@ pub fn main() {
         .without_time()
         .init();
     console_error_panic_hook::set_once();
-    mount_to_body(fetch_joke)
+    mount_to_body(fetch_quote)
 }

@@ -1,0 +1,10 @@
+/Users/camelliatran/Documents/CS/CS410P- Rust/project/quote-server/quote-client/target/wasm32-unknown-unknown/debug/deps/libgloo_utils-9234db25c65db847.rmeta: /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-utils-0.2.0/src/lib.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-utils-0.2.0/src/errors.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-utils-0.2.0/src/iter.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-utils-0.2.0/src/format/json.rs
+
+/Users/camelliatran/Documents/CS/CS410P- Rust/project/quote-server/quote-client/target/wasm32-unknown-unknown/debug/deps/libgloo_utils-9234db25c65db847.rlib: /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-utils-0.2.0/src/lib.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-utils-0.2.0/src/errors.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-utils-0.2.0/src/iter.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-utils-0.2.0/src/format/json.rs
+
+/Users/camelliatran/Documents/CS/CS410P- Rust/project/quote-server/quote-client/target/wasm32-unknown-unknown/debug/deps/gloo_utils-9234db25c65db847.d: /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-utils-0.2.0/src/lib.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-utils-0.2.0/src/errors.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-utils-0.2.0/src/iter.rs /Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-utils-0.2.0/src/format/json.rs
+
+/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-utils-0.2.0/src/lib.rs:
+/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-utils-0.2.0/src/errors.rs:
+/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-utils-0.2.0/src/iter.rs:
+/Users/camelliatran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/gloo-utils-0.2.0/src/format/json.rs:

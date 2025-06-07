@@ -3,7 +3,7 @@ use serde::{Serialize, Deserialize};
 use std::collections::HashSet;
 
 #[derive(Serialize, Deserialize)]
-pub struct Joke {
+pub struct Quote {
     pub id: String,
     pub content: String, 
     pub author: String,
