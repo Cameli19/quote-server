@@ -66,8 +66,12 @@ pub async fn get_quote(
             Ok(response::Redirect::to(&uri).into_response())
         }
         Err(e) => {
-            log::error!("quote selection failed: {}", e);
-            panic!("quote selection failed");
+            log::error!("random quote selection failed: {}", e);
+            let tag_string = "empty".to_string();
+            let quote = app_writer.current_quote.clone();
+            let quote = IndexTemplate::new(quote, tag_string);
+            Ok(response::Html(quote.to_string()).into_response())
+
         }
     }
 }

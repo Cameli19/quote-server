@@ -106,3 +106,32 @@ pub async fn get_random(db: &SqlitePool) -> Result<String, sqlx::Error> {
         .fetch_one(db)
         .await
 }
+
+pub async fn add(db: &SqlitePool, quote: JsonQuote) -> Result<(), sqlx::Error> {
+    let mut qtx = db.begin().await?;
+
+    sqlx::query!(
+        r#"INSERT INTO quotes
+        (id, content, author, source)
+        VALUES ($1, $2, $3, $4);"#,
+        quote.id,
+        quote.content,
+        quote.author,
+        quote.source,
+    )
+    .execute(&mut *jtx)
+    .await?;
+
+    for tag in quote.tags {
+        sqlx::query!(
+            r#"INSERT INTO tags (quote_id, tag) VALUES ($1, $2);"#,
+            quote.id,
+            tag,
+        )
+            .execute(&mut *qtx)
+            .await?;
+    }
+
+    qtx.commit().await?;
+    Ok(())
+}
