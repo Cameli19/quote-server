@@ -119,7 +119,7 @@ pub async fn add(db: &SqlitePool, quote: JsonQuote) -> Result<(), sqlx::Error> {
         quote.author,
         quote.source,
     )
-    .execute(&mut *jtx)
+    .execute(&mut *qtx)
     .await?;
 
     for tag in quote.tags {

@@ -75,7 +75,7 @@ impl AppState {
             db,
             jwt_keys,
             reg_key,
-            current_joke,
+            current_quote,
         }
     }
 }
