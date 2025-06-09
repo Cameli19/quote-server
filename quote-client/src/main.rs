@@ -14,7 +14,7 @@ pub fn EnterInput(set_endpoint: WriteSignal<String>) -> impl IntoView {
         // to read the current input and update the submitted text.
         let current_input = input_text.get(); // Get the current value from the signal
         if !current_input.trim().is_empty() {
-            set_endpoint.set(format!("joke/{}", current_input));
+            set_endpoint.set(format!("quote/{}", current_input));
         }
     };
 
@@ -68,7 +68,10 @@ fn fetch_quote() -> impl IntoView {
     };
 
     view! {
-        <div><Transition fallback=|| view! { <div>"Loading..."</div> }>
+        <div class="container">
+        <h1>"Quote of the Day"</h1>
+        
+        <Transition fallback=|| view! { <div>"Loading..."</div> }>
             <ErrorBoundary fallback=error_fallback>
                 {move || Suspend::new( async move {
                     quote.map(|q| {
@@ -95,7 +98,7 @@ fn fetch_quote() -> impl IntoView {
             <button on:click=move |_| {
                 let ep = "random-quote".to_string();
                 set_endpoint.set(ep)
-            }>Tell me another!</button>
+            }>Next Quote</button>
             <EnterInput set_endpoint=set_endpoint/>
         </div>
     }
